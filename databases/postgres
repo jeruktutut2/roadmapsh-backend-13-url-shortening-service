@@ -1,0 +1,19 @@
+psql -h localhost -d project_users -U postgres -W
+\list \l
+\c shortening_service
+\dt
+
+CREATE DATABASE shortening_service;
+\c shortening_service
+\dt
+
+CREATE TABLE shortens (
+  	id SERIAL PRIMARY KEY,
+  	url TEXT NOT NULL,
+  	short_code varchar(50) NOT NULL UNIQUE,
+  	created_at BIGINT NOT NULL,
+  	updated_at BIGINT NOT NULL,
+  	access_count INT NULL
+);
+
+INSERT INTO shortens(id, url, short_code, created_at, updated_at, access_count) VALUES (1, "abc", 1730644590480, 1730644590480, 0);
